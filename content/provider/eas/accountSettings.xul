@@ -17,6 +17,7 @@
             <menuitem id="tbsync.accountsettings.ContextMenuToggleSubscription" label="toggle" oncommand="tbSyncAccountSettings.toggleFolder();"/>
             <menuitem id="tbsync.accountsettings.ContextMenuDelete" label="delete" oncommand="tbSyncAccountSettings.deleteFolder();"/>
             <menuitem id="tbsync.accountsettings.ContextMenuTrash" type="checkbox" label="&pref.ShowTrashedFolders;" oncommand="tbSyncAccountSettings.toggleTrashSetting();"/>
+            <menuitem id="tbsync.accountsettings.Debug" label="add folder to list, which does not exist on server with synckey != 0" oncommand="tbSyncAccountSettings.debug();"/>
         </menupopup>
     </popupset>
 

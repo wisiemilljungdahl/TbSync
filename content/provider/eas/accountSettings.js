@@ -9,6 +9,26 @@ var tbSyncAccountSettings = {
     fixedSettings: {},
     protectedSettings: ["host", "user"],
 
+
+    debug: function () {
+        //add folder
+        let newData =tbSync.eas.getNewFolderEntry();
+        newData.account = tbSyncAccountSettings.selectedAccount;
+        newData.folderID = "89";
+        newData.name = "89";
+        newData.type = "13";
+        newData.parentID = "0";
+        newData.synckey = "213213";
+        newData.target = "";
+        newData.selected = "1";
+        newData.status = "";
+        newData.lastsynctime = "";
+        tbSync.db.addFolder(newData);
+        //update manager gui / folder list
+        let observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
+        observerService.notifyObservers(null, "tbsync.updateAccountSettingsGui",  tbSyncAccountSettings.selectedAccount);	    
+    },
+
     onload: function () {
         //get the selected account from the loaded URI
         tbSyncAccountSettings.selectedAccount = window.location.toString().split("id=")[1];
